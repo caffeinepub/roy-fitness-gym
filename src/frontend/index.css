@@ -1,0 +1,356 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+    /* Dark gym theme - single mode */
+    --background: 0.12 0.01 260;
+    --foreground: 0.97 0 0;
+    --card: 0.16 0.01 260;
+    --card-foreground: 0.97 0 0;
+    --popover: 0.18 0.01 260;
+    --popover-foreground: 0.97 0 0;
+    --primary: 0.55 0.22 25;
+    --primary-foreground: 0.97 0 0;
+    --secondary: 0.20 0.01 260;
+    --secondary-foreground: 0.97 0 0;
+    --muted: 0.20 0.01 260;
+    --muted-foreground: 0.65 0.01 260;
+    --accent: 0.20 0.01 260;
+    --accent-foreground: 0.97 0 0;
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.97 0 0;
+    --border: 0.25 0.01 260;
+    --input: 0.20 0.01 260;
+    --ring: 0.55 0.22 25;
+    --chart-1: 0.55 0.22 25;
+    --chart-2: 0.65 0.12 200;
+    --chart-3: 0.70 0.14 140;
+    --chart-4: 0.75 0.18 60;
+    --chart-5: 0.60 0.20 300;
+    --sidebar: 0.10 0.01 260;
+    --sidebar-foreground: 0.97 0 0;
+    --sidebar-primary: 0.55 0.22 25;
+    --sidebar-primary-foreground: 0.97 0 0;
+    --sidebar-accent: 0.20 0.01 260;
+    --sidebar-accent-foreground: 0.97 0 0;
+    --sidebar-border: 0.25 0.01 260;
+    --sidebar-ring: 0.55 0.22 25;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'General Sans', 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Custom font stack using system fonts that approximate Cabinet Grotesk & General Sans */
+.font-display {
+  font-family: 'Cabinet Grotesk', 'Helvetica Neue', 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.font-heading {
+  font-family: 'Cabinet Grotesk', 'Helvetica Neue', 'Arial Black', Arial, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.font-body {
+  font-family: 'General Sans', 'Inter', system-ui, sans-serif;
+}
+
+/* ── Hero headline treatment ─────────────────────────── */
+.hero-headline {
+  font-family: 'Helvetica Neue', 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  font-size: clamp(64px, 11vw, 152px);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.hero-headline .accent {
+  color: oklch(0.58 0.24 25);
+  position: relative;
+  display: inline-block;
+}
+
+/* Diagonal slash accent behind FITNESS */
+.hero-headline .accent::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  right: -8px;
+  bottom: 4px;
+  height: 6px;
+  background: linear-gradient(90deg, oklch(0.55 0.22 25 / 0) 0%, oklch(0.55 0.22 25 / 0.7) 40%, oklch(0.55 0.22 25 / 0) 100%);
+  transform: skewX(-12deg);
+  border-radius: 2px;
+}
+
+/* Section heading styles */
+.section-title {
+  font-family: 'Helvetica Neue', 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+/* Utility classes */
+.text-red {
+  color: oklch(0.55 0.22 25);
+}
+
+.bg-red {
+  background-color: oklch(0.55 0.22 25);
+}
+
+.border-red {
+  border-color: oklch(0.55 0.22 25);
+}
+
+/* Glow effects */
+.glow-red {
+  box-shadow: 0 0 20px oklch(0.55 0.22 25 / 0.6);
+}
+
+.glow-red-lg {
+  box-shadow: 0 0 40px oklch(0.55 0.22 25 / 0.4), 0 0 80px oklch(0.55 0.22 25 / 0.2);
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 20px oklch(0.55 0.22 25 / 0.7), 0 0 40px oklch(0.55 0.22 25 / 0.3);
+}
+
+/* Glass card effect — layered depth */
+.glass-card {
+  background: oklch(0.16 0.01 260 / 0.75);
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  border: 1px solid oklch(0.30 0.01 260 / 0.8);
+  box-shadow:
+    0 1px 0 oklch(1 0 0 / 0.06) inset,
+    0 8px 32px oklch(0 0 0 / 0.4);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: oklch(0.55 0.22 25 / 0.55);
+  box-shadow:
+    0 1px 0 oklch(1 0 0 / 0.08) inset,
+    0 16px 48px oklch(0 0 0 / 0.5),
+    0 0 0 1px oklch(0.55 0.22 25 / 0.15),
+    0 0 24px oklch(0.55 0.22 25 / 0.12);
+}
+
+/* Premium service card variant */
+.service-card {
+  background: linear-gradient(145deg, oklch(0.17 0.012 260 / 0.9) 0%, oklch(0.13 0.008 260 / 0.9) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid oklch(0.28 0.01 260 / 0.7);
+  box-shadow:
+    0 1px 0 oklch(1 0 0 / 0.07) inset,
+    0 4px 24px oklch(0 0 0 / 0.35);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.service-card:hover {
+  border-color: oklch(0.55 0.22 25 / 0.6);
+  box-shadow:
+    0 1px 0 oklch(1 0 0 / 0.10) inset,
+    0 12px 40px oklch(0 0 0 / 0.45),
+    0 0 0 1px oklch(0.55 0.22 25 / 0.2),
+    0 0 30px oklch(0.55 0.22 25 / 0.15);
+  transform: translateY(-5px);
+}
+
+/* Section overlay variants — each section feels compositionally distinct */
+.overlay-about {
+  background: linear-gradient(
+    135deg,
+    oklch(0.06 0.008 25 / 0.88) 0%,
+    oklch(0.08 0.005 260 / 0.82) 60%,
+    oklch(0.05 0.005 260 / 0.90) 100%
+  );
+}
+
+.overlay-membership {
+  background: linear-gradient(
+    180deg,
+    oklch(0.06 0.012 240 / 0.88) 0%,
+    oklch(0.04 0.008 250 / 0.92) 100%
+  );
+}
+
+.overlay-locations {
+  background: linear-gradient(
+    160deg,
+    oklch(0.05 0.01 260 / 0.84) 0%,
+    oklch(0.08 0.006 20 / 0.86) 100%
+  );
+}
+
+.overlay-contact {
+  background: linear-gradient(
+    145deg,
+    oklch(0.05 0.005 260 / 0.85) 0%,
+    oklch(0.07 0.008 30 / 0.88) 100%
+  );
+}
+
+/* Edge vignette for hero */
+.hero-vignette {
+  background: radial-gradient(
+    ellipse 120% 100% at 50% 50%,
+    transparent 30%,
+    oklch(0 0 0 / 0.5) 100%
+  );
+}
+
+/* Section separator — diagonal red slash */
+.section-slash::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    oklch(0.55 0.22 25 / 0.6) 30%,
+    oklch(0.55 0.22 25 / 0.6) 70%,
+    transparent 100%
+  );
+  z-index: 10;
+}
+
+/* Animated gradient line */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.shimmer-line {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    oklch(0.55 0.22 25) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Bounce animation for scroll indicator */
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 2s ease-in-out infinite;
+}
+
+/* Pulse glow for popular card */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px oklch(0.55 0.22 25 / 0.4), 0 0 40px oklch(0.55 0.22 25 / 0.2); }
+  50% { box-shadow: 0 0 30px oklch(0.55 0.22 25 / 0.7), 0 0 60px oklch(0.55 0.22 25 / 0.4); }
+}
+
+.popular-card-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: oklch(0.12 0.01 260);
+}
+
+::-webkit-scrollbar-thumb {
+  background: oklch(0.55 0.22 25);
+  border-radius: 3px;
+}
+
+/* Image hover effects */
+.gallery-img-container {
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+.gallery-img-container img {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-img-container:hover img {
+  transform: scale(1.08);
+}
+
+.gallery-img-container:hover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid oklch(0.55 0.22 25);
+  border-radius: 0.75rem;
+  pointer-events: none;
+}
+
+/* Input styling overrides */
+input, textarea, select {
+  background-color: oklch(0.20 0.01 260) !important;
+  color: oklch(0.97 0 0) !important;
+  border-color: oklch(0.25 0.01 260) !important;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: oklch(0.55 0.22 25) !important;
+  outline: none;
+  box-shadow: 0 0 0 2px oklch(0.55 0.22 25 / 0.25) !important;
+}
+
+input::placeholder, textarea::placeholder {
+  color: oklch(0.50 0.01 260) !important;
+}
+
+/* Nav link hover */
+.nav-link {
+  position: relative;
+  transition: color 0.2s;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: oklch(0.55 0.22 25);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
