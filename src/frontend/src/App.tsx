@@ -454,7 +454,7 @@ function AboutSection() {
                 style={{ zIndex: 1 }}
               >
                 <img
-                  src="/assets/generated/trainer-ashish-roy.dim_600x700.jpg"
+                  src="/assets/ashish2.jpeg"
                   alt="Ashish Roy - Founder & Head Trainer"
                   className="w-full object-cover rounded-2xl"
                   style={{
@@ -2121,7 +2121,10 @@ function NewsletterBanner() {
   return (
     <section
       className="relative py-14 overflow-hidden"
-      style={{ background: "oklch(0.55 0.22 25)" }}
+      style={{
+        background:
+          "linear-gradient(135deg, oklch(0.72 0.13 25) 0%, oklch(0.82 0.09 20) 50%, oklch(0.78 0.11 15) 100%)",
+      }}
     >
       {/* Pattern overlay */}
       <div
