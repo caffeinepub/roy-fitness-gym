@@ -90,18 +90,7 @@
   display: inline-block;
 }
 
-/* Diagonal slash accent behind FITNESS */
-.hero-headline .accent::before {
-  content: '';
-  position: absolute;
-  left: -8px;
-  right: -8px;
-  bottom: 4px;
-  height: 6px;
-  background: linear-gradient(90deg, oklch(0.55 0.22 25 / 0) 0%, oklch(0.55 0.22 25 / 0.7) 40%, oklch(0.55 0.22 25 / 0) 100%);
-  transform: skewX(-12deg);
-  border-radius: 2px;
-}
+
 
 /* Section heading styles */
 .section-title {

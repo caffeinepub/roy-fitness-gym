@@ -409,16 +409,6 @@ function HeroSection({
           </motion.div>
         </motion.div>
       </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20">
-        <span className="text-xs text-gray-500 uppercase tracking-[0.2em]">
-          Scroll
-        </span>
-        <div className="animate-bounce-slow">
-          <ChevronDown size={20} className="text-red-500/70" />
-        </div>
-      </div>
     </section>
   );
 }
